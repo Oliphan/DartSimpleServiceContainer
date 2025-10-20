@@ -21,7 +21,7 @@ groceryServices.register<String>('Global Grocery Store');
 ```
 
 Doing setup logic and service registration via extensions is recommended for
-organization and to de-clutter the application root.
+organization and to declutter the application root.
 ```dart
 await groceryServices.setupFridge();
 await groceryServices.setupBakery();
@@ -30,7 +30,7 @@ await groceryServices.setupGrocery();
 ```
 
 If we attempt to register a service that has already been registered in the
-container then we get an error immediately, enabling us to know .
+container then we get an error immediately.
 ```dart
 // This will throw an ArgumentError
 groceryServices.register(
@@ -130,6 +130,6 @@ ease-of-use in particular use cases:
    access to services and obtaining them via the `BuildContext` and watching
    listenable services for rebuild on changes via [context_watch](https://pub.dev/packages/context_watch)
  - [`owning_simple_service_container`](https://pub.dev/packages/owning_simple_service_container)
-   : For when you have disposeable resources
+   : For when you have disposable resources
    that should be owned by a container and disposed along with it
   
