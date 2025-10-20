@@ -1,0 +1,13 @@
+name: simple_service_container
+description: Provides a service container and utilities for simple, non-lazy IOC.
+version: 1.0.0-dev.1
+repository: https://github.com/Oliphan/DartSimpleServiceContainer
+
+environment:
+  sdk: ^3.9.2
+
+dev_dependencies:
+  lints: ^6.0.0
+
+dependencies:
+  meta: ^1.16.0
