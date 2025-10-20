@@ -20,7 +20,7 @@ Future<void> main() async {
   groceryServices.register<String>('Global Grocery Store');
 
   // Doing setup logic and service registration via extensions is recommended
-  // for organization and to de-clutter the application root
+  // for organization and to declutter the application root
   await groceryServices.setupFridge();
   await groceryServices.setupBakery();
   await groceryServices.setupProduce();
