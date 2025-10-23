@@ -100,8 +100,17 @@ Then in our app we can pass the services downwards, get services out of the
 container, and use them.
 ```dart
 void doGroceryAppThings(ServiceContainer services) {
-  // We can get services out of the container and use them
-  printGroceries(services.get<GroceryStore>());
+  // We can get services out of the container by using get if we're sure they
+  // are registered (if they are not this will throw an error)
+  final store = services.get<GroceryStore>();
+  printGroceries(store);
+
+  // If we aren't sure if a service has been registered we can use tryGet,
+  // which will return null if the service is not registered.
+  final maybeString = services.tryGet<String>();
+  if (maybeString != null) {
+    print(maybeString);
+  }
 
   // Any sub-typed sub-containers we registered, we can get out and pass along
   // to the parts of our app that should use those services
