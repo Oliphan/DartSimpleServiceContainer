@@ -31,20 +31,6 @@ class ServiceContainer implements ReadOnlyServiceContainer {
   }
 
   @override
-  T get<T extends Object>() {
-    final service = _registrations[T] ?? _parent?.get<T>();
-
-    if (service == null) {
-      throw ArgumentError(
-        'A service of type "$T" has not been registered.',
-        'T',
-      );
-    }
-
-    return service as T;
-  }
-
-  @override
   Iterable<MapEntry<Type, Object>> getAllRegistrations() sync* {
     final parentRegistrations = _parent?.getAllRegistrations();
 
@@ -72,4 +58,8 @@ class ServiceContainer implements ReadOnlyServiceContainer {
 
     return service;
   }
+
+  @override
+  T? tryGet<T extends Object>() =>
+      (_registrations[T] as T?) ?? _parent?.tryGet<T>();
 }
